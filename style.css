@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.87);
+  }
+  
+  .container {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 6px solid turquoise;
+    outline-offset: 1.5rem;
+    animation: colorful 60s linear infinite;
+  }
+  
+  @keyframes colorful {
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+  
+  .bar-seconds,
+  .number-hours {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  
+  .bar-seconds span {
+    position: absolute;
+    transform: rotate(calc(var(--index) * 6deg));
+    inset: -20px;
+    text-align: center;
+  }
+  
+  .bar-seconds span:nth-child(5n) p {
+    width: 4px;
+    height: 15px;
+    transform: translateY(1px);
+  }
+  
+  .bar-seconds span p {
+    display: inline-block;
+    width: 2px;
+    height: 0.75rem;
+    background-color: turquoise;
+    border-radius: 2px;
+    box-shadow: 0 0 10px turquoise;
+  }
+  
+  .number-hours span {
+    position: absolute;
+    transform: rotate(calc(var(--index) * 30deg));
+    inset: 6px;
+    text-align: center;
+  }
+  
+  .number-hours span p {
+    font-size: 2.6rem;
+    color: turquoise;
+    text-shadow: 0 0 10px turquoise;
+    transform: rotate(calc(var(--index) * -30deg));
+  }
+  
+  .hands-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hands-box .clock-brand {
+    position: absolute;
+    top: -210px;
+    width: 13px;
+    border-radius: 100%;
+    height: 12px;
+    background: rgb(210, 208, 208);
+  }
+  
+  .hands-box .hand {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .hands-box .hand i {
+    display: inline-block;
+    transform-origin: bottom;
+    border-radius: 50%;
+    box-shadow: 0 0 10px turquoise;
+  }
+  
+  .hands-box .hours {
+    width: 15rem;
+    height: 15rem;
+  }
+  
+  .hands-box .hours i {
+    width: 0.4rem;
+    height: 8rem;
+    background-color: turquoise;
+  }
+  
+  .hands-box .minutes {
+    width: 20rem;
+    height: 20rem;
+  }
+  
+  .hands-box .minutes::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.3rem;
+    height: 1.3rem;
+    background-color: turquoise;
+    border-radius: 50%;
+    box-shadow: 0 0 5px turquoise;
+  }
+  
+  .hands-box .minutes i {
+    width: 0.4rem;
+    height: 10rem;
+    background-color: turquoise;
+  }
+  
+  .hands-box .seconds {
+    width: 22rem;
+    height: 22rem;
+  }
+  
+  .hands-box .seconds::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    background-color: whitesmoke;
+    border-radius: 50%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .hands-box .seconds i {
+    width: 0.25rem;
+    height: calc(11rem + 3rem);
+    background-color: white;
+    box-shadow: none;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .container {
+      width: 255px;
+      height: 255px;
+      outline: 4px solid turquoise;
+      outline-offset: 1.2rem;
+    }
+  
+    .bar-seconds span:nth-child(5n) p {
+      width: 4px;
+      height: 12px;
+    }
+  
+    .bar-seconds span p {
+      width: 2px;
+      height: 0.6rem;
+    }
+  
+    .number-hours span p {
+      font-size: 2rem;
+    }
+  
+    .hands-box .hours {
+      width: 10rem;
+      height: 10rem;
+    }
+
+    .hands-box .clock-brand {
+        top: -144px;
+    }
+  
+    .hands-box .hours i {
+      width: 0.4rem;
+      height: 5rem;
+    }
+  
+    .hands-box .minutes {
+      width: 14rem;
+      height: 14rem;
+    }
+  
+    .hands-box .minutes::before {
+      width: 1rem;
+      height: 1rem;
+    }
+  
+    .hands-box .minutes i {
+      width: 0.35rem;
+      height: 7rem;
+    }
+  
+    .hands-box .seconds {
+      width: 15rem;
+      height: 15rem;
+    }
+  
+    .hands-box .seconds i {
+      width: 0.25rem;
+      height: calc(7.5rem + 2rem);
+    }
+  
+    .hands-box .seconds::before {
+      width: 0.7rem;
+      height: 0.7rem;
+    }
+  }
